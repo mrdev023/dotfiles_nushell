@@ -5,7 +5,7 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-yay -S nushell zoxide starship --noconfirm
+yay -S nushell zoxide starship jq --noconfirm
 
 zoxide init nushell > ~/.zoxide.nu
 starship init nu > ~/.starship.nu
