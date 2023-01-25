@@ -1,0 +1,24 @@
+diff --git a/asdf.nu b/asdf.nu
+index 3f07d24..203f474 100644
+--- a/asdf.nu
++++ b/asdf.nu
+@@ -6,9 +6,10 @@ def-env configure-asdf [] {
+ 
+     let asdf_bin_dir = ( $env.ASDF_DIR | path join 'bin' )
+ 
++    let PATH = ( $env.PATH | split row ';' )
+ 
+-    let-env PATH = ( $env.PATH | where { |p| $p != $shims_dir } | append $shims_dir )
+-    let-env PATH = ( $env.PATH | where { |p| $p != $asdf_bin_dir } | append $asdf_bin_dir )
++    let-env PATH = ( $PATH | where { |p| $p != $shims_dir } | append $shims_dir )
++    let-env PATH = ( $PATH | where { |p| $p != $asdf_bin_dir } | append $asdf_bin_dir )
+ 
+ }
+ 
+@@ -240,4 +241,4 @@ module asdf {
+ 
+ }
+ 
+-use asdf *
+\ No newline at end of file
++use asdf *
