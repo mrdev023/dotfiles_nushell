@@ -17,6 +17,8 @@ rm -rf "$HOME/.asdf"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
 cd "$HOME/.asdf" && git apply "$SCRIPTPATH/fix_script.patch" && cd "$SCRIPTPATH"
 
+nu --config "$SCRIPTPATH/nushell/config.nu" --env-config "$SCRIPTPATH/nushell/env.nu" "$SCRIPTPATH/configure.nu"
+
 echo -e "\nFILE ADDED: "
 echo -e "\t$HOME/.zoxide.nu"
 echo -e "\t$HOME/.starship.nu"
