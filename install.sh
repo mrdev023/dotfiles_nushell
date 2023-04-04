@@ -5,8 +5,6 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-yay -S nushell zoxide starship jq --noconfirm
-
 zoxide init nushell > ~/.zoxide.nu
 starship init nu > ~/.starship.nu
 
@@ -14,7 +12,7 @@ rm -rf "$HOME/.config/nushell"
 ln -s "$SCRIPTPATH/nushell" "$HOME/.config/nushell"
 
 rm -rf "$HOME/.asdf"
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
 
 nu --config "$SCRIPTPATH/nushell/config.nu" --env-config "$SCRIPTPATH/nushell/env.nu" "$SCRIPTPATH/configure.nu"
 
